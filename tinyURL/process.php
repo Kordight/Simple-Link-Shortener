@@ -3,9 +3,7 @@ require "library.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $longUrl = $_POST["UserUrl"];
     $expires = $_POST["vol"];
-    echo "<p><strong>Long Url: </strong> $longUrl</p>";
-    echo "<p><strong>Expire: </strong> $expires</p>";
-    // echo "<p><strong>Short URL</strong></p>";
+    $urlExpireDate = calcExpireDate($expires);
     $dbConfig = getDatabaseConfig();
     $conn = new mysqli($dbConfig['servername'], $dbConfig['username'], $dbConfig['password'], $dbConfig['dbname']);
 
@@ -13,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($conn) {
         while (true) {
             $tinyUrl = bin2hex(random_bytes(3));
-            $urlExpireDate = calcExpireDate($expires);
+
 
             $tinyUrl = $conn->real_escape_string($tinyUrl);
 
@@ -27,7 +25,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 if ($conn->query($sql_insert) === true) {
                     //Success 
-                    echo("<p>Added: " .$longUrl ." as: " .$tinyUrl ."</p>");
+                    echo ("<h1>Your shourt URL is ready!</h1><br>");
+                    // Get the protocol (http or https)
+                    $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
+
+                    // Get the server name
+                    $serverName = $_SERVER['HTTP_HOST'];
+
+                    // Get the script name (current script)
+                    $scriptName = $_SERVER['SCRIPT_NAME'];
+
+                    // Combine the protocol, server name, and script name to form the base URL
+                    $baseURL = $protocol . '://' . $serverName . "/tinyURL";
+
+                    // Construct the full URL
+                    $fullURL = $baseURL . '/' . $tinyUrl;
+
+                    // Display the result
+                    echo "<p>Your short URL is <a href='$fullURL'>$fullURL</a></p>";
+                    // Convert the string to a timestamp
+                    $urlExpireTimestamp = strtotime($urlExpireDate);
+
+                    // Format the timestamp into a readable date and time
+                    $formattedExpireDate = date('Y-m-d H:i:s', $urlExpireTimestamp);
+                    echo "<br><p>Your link will expire on: $formattedExpireDate</p>";
                 } else {
                     //Failure
                 }
