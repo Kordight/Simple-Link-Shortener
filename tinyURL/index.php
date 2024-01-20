@@ -21,6 +21,7 @@
         </div>
 
 <input type="submit" value="Submit">
+<!-- add Captcha -->
     </form>
 
     <script>
