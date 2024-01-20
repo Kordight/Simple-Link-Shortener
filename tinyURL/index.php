@@ -17,10 +17,10 @@
         <label for="vol">Expires:</label>
         <input type="range" id="vol" name="vol" min="0" max="5" value="0" step="1" onchange="updateRangeValue()">
         <div class="expires">
-            <p>Expires <span id="rangeValue">Next day</span></p>
+            <p>Expires <span id="rangeValue">Next day</span>.</p>
         </div>
 
-        <br><input type="submit" value="Submit">
+<input type="submit" value="Submit">
     </form>
 
     <script>
@@ -36,7 +36,7 @@
                     rangeToStr = "In 3 days";
                     break;
                 case 2:
-                    rangeToStr = "Next week";
+                    rangeToStr = "Next Week";
                     break;
                 case 3:
                     rangeToStr = "Next Month";
