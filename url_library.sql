@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sty 20, 2024 at 08:11 PM
+-- Generation Time: Sty 20, 2024 at 09:22 PM
 -- Wersja serwera: 10.4.32-MariaDB
 -- Wersja PHP: 8.2.12
 
@@ -31,8 +31,15 @@ CREATE TABLE `url_list` (
   `ID` int(11) NOT NULL,
   `longUrl` text NOT NULL,
   `tinyUrl` text NOT NULL,
-  `expireDate` date NOT NULL
+  `urlExpireDate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `url_list`
+--
+
+INSERT INTO `url_list` (`ID`, `longUrl`, `tinyUrl`, `urlExpireDate`) VALUES
+(1, 'https://google.com', '2a7bff', '2024-01-20');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -52,7 +59,7 @@ ALTER TABLE `url_list`
 -- AUTO_INCREMENT for table `url_list`
 --
 ALTER TABLE `url_list`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

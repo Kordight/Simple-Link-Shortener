@@ -1,22 +1,19 @@
-# Disable directory listing
 Options -Indexes
-
-# Enable the Rewrite Engine
 RewriteEngine on
 
 # Redirect to HTTPS if not already
 RewriteCond %{HTTPS} off
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Remove file extension for non-directory requests
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.php -f
-RewriteRule ^([^/]+)/?$ $1.php [L]
-
 # Redirect URLs like tinyURL/1rq to tinyURL/player.php?target=1rq
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^tinyURL/([^/]+)/?$ tinyURL/redirect.php?target=$1 [L,QSA]
+
+# Remove file extension for non-directory requests
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^/]+)/?$ $1.php [L]
 
 # Redirect from /example.html to /example
 RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
