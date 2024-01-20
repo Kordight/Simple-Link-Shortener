@@ -7,7 +7,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dbConfig = getDatabaseConfig();
     $conn = new mysqli($dbConfig['servername'], $dbConfig['username'], $dbConfig['password'], $dbConfig['dbname']);
 
-    //$conn = mysqli_connect("localhost", "root", "", "url_library");
     if ($conn) {
         while (true) {
             $tinyUrl = bin2hex(random_bytes(3));

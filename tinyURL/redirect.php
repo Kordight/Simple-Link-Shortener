@@ -4,7 +4,6 @@ require "library.php";
 $tinyUrl = isset($_GET['target']) ? $_GET['target'] : '';
 
 // Wyświetl zawartość public ID
-echo "Tiny url is: $tinyUrl";
 $dbConfig = getDatabaseConfig();
 $conn = new mysqli($dbConfig['servername'], $dbConfig['username'], $dbConfig['password'], $dbConfig['dbname']);
 
@@ -33,7 +32,7 @@ if ($conn) {
         header("Location: $longUrl");
         die();
     }
-
+    echo "This URL is invalid!";
     // Close the statement
     $stmt->close();
 }
