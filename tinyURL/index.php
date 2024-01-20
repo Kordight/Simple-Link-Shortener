@@ -12,8 +12,8 @@
     <h2>Shorten your URL!</h2>
 
     <form action="process.php" method="post">
-        <label for="url">Full Url:</label>
-        <input type="text" name="name" required><br>
+        <label for="UserUrl">Full Url:</label>
+        <input type="url" id="UserUrl" name="UserUrl" required><br>
         <label for="vol">Expires:</label>
         <input type="range" id="vol" name="vol" min="0" max="5" value="0" step="1" onchange="updateRangeValue()">
         <div class="expires">
