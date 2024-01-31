@@ -31,14 +31,14 @@ CREATE TABLE `url_list` (
   `ID` int(11) NOT NULL,
   `longUrl` text NOT NULL,
   `tinyUrl` text NOT NULL,
-  `urlExpireDate` date NOT NULL
+  `urlCreationData` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `url_list`
 --
 
-INSERT INTO `url_list` (`ID`, `longUrl`, `tinyUrl`, `urlExpireDate`) VALUES
+INSERT INTO `url_list` (`ID`, `longUrl`, `tinyUrl`, `urlCreationData`) VALUES
 (1, 'https://google.com', '2a7bff', '2024-01-20');
 
 --
