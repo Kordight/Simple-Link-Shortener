@@ -1,0 +1,28 @@
+footer {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: lightslategrey;
+}
+
+form {
+    text-align: left;
+    padding: 2%;
+    border: 2px lightslategray solid;
+    border-radius: 15px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+label {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+input {
+    font-size: 20px;
+    border-radius: 5px;
+    border: 1px solid rgb(161, 161, 161);
+}
