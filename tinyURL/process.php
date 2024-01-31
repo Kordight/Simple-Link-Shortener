@@ -2,8 +2,8 @@
 require "library.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $longUrl = $_POST["UserUrl"];
-    $expires = $_POST["vol"];
-    $urlExpireDate = calcExpireDate($expires);
+    //$expires = $_POST["vol"];
+    //$urlExpireDate = calcExpireDate($expires);
     $dbConfig = getDatabaseConfig();
     $conn = new mysqli($dbConfig['servername'], $dbConfig['username'], $dbConfig['password'], $dbConfig['dbname']);
 
@@ -19,8 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($result_check_player->num_rows === 0) {
                 $longUrl = $conn->real_escape_string($longUrl);
-                $sql_insert = "INSERT INTO url_list (longUrl, tinyUrl, urlExpireDate) 
-                               VALUES ('$longUrl', '$tinyUrl', '$urlExpireDate')";
+                $sql_insert = "INSERT INTO url_list (longUrl, tinyUrl) 
+                               VALUES ('$longUrl', '$tinyUrl')";
 
                 if ($conn->query($sql_insert) === true) {
                     //Success 
@@ -41,13 +41,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $fullURL = $baseURL . '/' . $tinyUrl;
 
                     // Display the result
+                    
                     echo "<p>Your short URL is <a href='$fullURL'>$fullURL</a></p>";
+                    /*
                     // Convert the string to a timestamp
                     $urlExpireTimestamp = strtotime($urlExpireDate);
 
                     // Format the timestamp into a readable date and time
                     $formattedExpireDate = date('Y-m-d H:i:s', $urlExpireTimestamp);
                     echo "<br><p>Your link will expire on: $formattedExpireDate</p>";
+                */
                 } else {
                     //Failure
                 }

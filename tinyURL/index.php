@@ -16,13 +16,18 @@
 
         <label for="UserUrl">Paste yours long Url:</label><br>
         <input type="url" id="UserUrl" name="UserUrl" required><br>
+        <!--
+
         <label for="vol">Select expire date:</label><br>
         <input type="range" id="vol" name="vol" min="0" max="5" value="0" step="1" onchange="updateRangeValue()">
+        
+    -->
         <br><input type="submit" value="Shorten URL!">
-        <!-- add Captcha someday...-->
+        <!-- add Captcha someday...
         <div class="expires">
             <p>Yours link expires <span id="rangeValue">Next day</span>.</p>
-        </div>
+        </div> 
+    -->
 
     </form>
 
