@@ -1,7 +1,7 @@
 <?php
 function getDatabaseConfig()
 {
-    $configFilePath = 'C:\Users\sebao\Desktop\config.ini';
+    $configFilePath = 'C:\config.ini';
     return parse_ini_file($configFilePath, true)['database'];
 }
 function addQuotesToString($string)
