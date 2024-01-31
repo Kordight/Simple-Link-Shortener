@@ -1,42 +1,65 @@
-<?php
-require "library.php";
-// Pobierz public ID z parametru zapytania
-$tinyUrl = isset($_GET['target']) ? $_GET['target'] : '';
+<html>
 
-// Wyświetl zawartość public ID
-$dbConfig = getDatabaseConfig();
-$conn = new mysqli($dbConfig['servername'], $dbConfig['username'], $dbConfig['password'], $dbConfig['dbname']);
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-if ($conn) {
-    // Using prepared statement to avoid SQL injection
-    $query = "SELECT * FROM url_list WHERE tinyUrl = ?";
-    $stmt = $conn->prepare($query);
+<body>
+    <?php
+    require "library.php";
+    // Pobierz public ID z parametru zapytania
+    $tinyUrl = isset($_GET['target']) ? $_GET['target'] : '';
 
-    // Bind the parameter
-    $stmt->bind_param("s", $tinyUrl);
+    // Wyświetl zawartość public ID
+    $dbConfig = getDatabaseConfig();
+    $conn = new mysqli($dbConfig['servername'], $dbConfig['username'], $dbConfig['password'], $dbConfig['dbname']);
 
-    // Execute the query
-    $stmt->execute();
+    if ($conn) {
+        // Using prepared statement to avoid SQL injection
+        $query = "SELECT * FROM url_list WHERE tinyUrl = ?";
+        $stmt = $conn->prepare($query);
 
-    // Get the result
-    $result = $stmt->get_result();
+        // Bind the parameter
+        $stmt->bind_param("s", $tinyUrl);
 
-    // Fetch the data
-    while ($row = $result->fetch_assoc()) {
-        // Access the 'longUrl' column from the result
-        $longUrl = $row['longUrl'];
+        // Execute the query
+        $stmt->execute();
 
-        // Do something with $longUrl
-        echo "Long URL: $longUrl";
+        // Get the result
+        $result = $stmt->get_result();
 
-        header("Location: $longUrl");
-        die();
+        // Fetch the data
+        while ($row = $result->fetch_assoc()) {
+            // Access the 'longUrl' column from the result
+            $longUrl = $row['longUrl'];
+
+            // Do something with $longUrl
+            echo "Long URL: $longUrl";
+
+            header("Location: $longUrl");
+            die();
+        }
+        echo "This URL is invalid!";
+        // Close the statement
+        $stmt->close();
     }
-    echo "This URL is invalid!";
-    // Close the statement
-    $stmt->close();
-}
 
-$conn->close();
+    $conn->close();
 
-?>
+    ?>
+    <br>
+    <hr>
+    <footer>
+        <h3>Authors:</h3>
+        <div class="links">
+            <a href="https://github.com/seba0456">
+                <img src="images/github-mark.png" alt="Github profile" style="width:42px;height:42px;">
+                <br><b>seba0456</b>
+            </a>
+        </div>
+</body>
+
+</html>
