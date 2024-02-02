@@ -14,71 +14,61 @@
 <body>
     <div class="border-box">
         <?php
+        session_start(); // Start session
+
         require "library.php";
+
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $longUrl = $_POST["UserUrl"];
-            //$expires = $_POST["vol"];
-            //$urlExpireDate = calcExpireDate($expires);
+
             $dbConfig = getDatabaseConfig();
             $conn = new mysqli($dbConfig['servername'], $dbConfig['username'], $dbConfig['password'], $dbConfig['dbname']);
 
             if ($conn) {
-                while (true) {
-                    $tinyUrl = bin2hex(random_bytes(3));
+                if (!isset($_SESSION['tinyUrl'])) { // Check if short URL has already been generated
+                    while (true) {
+                        $tinyUrl = bin2hex(random_bytes(3));
+                        $tinyUrl = $conn->real_escape_string($tinyUrl);
 
+                        $sql_check_player = "SELECT * FROM url_list WHERE tinyUrl = '$tinyUrl'";
+                        $result_check_player = $conn->query($sql_check_player);
 
-                    $tinyUrl = $conn->real_escape_string($tinyUrl);
-
-                    $sql_check_player = "SELECT * FROM url_list WHERE tinyUrl = '$tinyUrl'";
-                    $result_check_player = $conn->query($sql_check_player);
-
-                    if ($result_check_player->num_rows === 0) {
-                        $longUrl = $conn->real_escape_string($longUrl);
-                        $sql_insert = "INSERT INTO url_list (longUrl, tinyUrl) 
+                        if ($result_check_player->num_rows === 0) {
+                            $longUrl = $conn->real_escape_string($longUrl);
+                            $sql_insert = "INSERT INTO url_list (longUrl, tinyUrl) 
                                VALUES ('$longUrl', '$tinyUrl')";
 
-                        if ($conn->query($sql_insert) === true) {
-                            //Success 
-                            echo ("<h1 style='text-align: center; font-size: 45px; '>Your short URL is ready!</h1><br>");
-                            // Get the protocol (http or https)
-                            $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
-
-                            // Get the server name
-                            $serverName = $_SERVER['HTTP_HOST'];
-
-                            // Get the script name (current script)
-                            $scriptName = $_SERVER['SCRIPT_NAME'];
-
-                            // Combine the protocol, server name, and script name to form the base URL
-                            $baseURL = $protocol . '://' . $serverName . "/tinyURL";
-
-                            // Construct the full URL
-                            $fullURL = $baseURL . '/' . $tinyUrl;
-
-                            // Display the result
-
-                            echo "<p style='font-size: 25px;'>Your short URL is <a href='$fullURL'>$fullURL</a></p>";
-                            /*
-                    // Convert the string to a timestamp
-                    $urlExpireTimestamp = strtotime($urlExpireDate);
-
-                    // Format the timestamp into a readable date and time
-                    $formattedExpireDate = date('Y-m-d H:i:s', $urlExpireTimestamp);
-                    echo "<br><p>Your link will expire on: $formattedExpireDate</p>";
-                */
-                        } else {
-                            //Failure
+                            if ($conn->query($sql_insert) === true) {
+                                // Save the short URL in session
+                                $_SESSION['tinyUrl'] = $tinyUrl;
+                                break;
+                            } else {
+                                // Failure
+                            }
                         }
-                        break;
                     }
+                } else {
+                    // If user already has assigned short URL, retrieve it from session
+                    $tinyUrl = $_SESSION['tinyUrl'];
                 }
+                // Get URL
+                $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
+                $serverName = $_SERVER['HTTP_HOST'];
+                $scriptName = $_SERVER['SCRIPT_NAME'];
+                $baseURL = $protocol . '://' . $serverName . "/tinyURL";
+                $fullURL = $baseURL . '/' . $tinyUrl;
+
+                echo ("<h1 style='text-align: center; font-size: 40px; '>Your short URL is ready!</h1><br>");
+                echo "<p style='font-size: 25px;'>Your short URL is <a href='$fullURL'>$fullURL</a></p>";
+                // Close database connection
                 $conn->close();
             }
         } else {
-            // Redirect back to the form if accessed directly
+            // If user is not redirected from the form, redirect them back to the form
             header("Location: index.php");
             exit();
         }
+
         ?>
         <hr>
         <p>Your URL will never expire!</p>
