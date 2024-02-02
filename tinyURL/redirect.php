@@ -54,7 +54,7 @@
     ?>
         <div class="border-box">
         <h1 style='text-align: center; font-size: 40px; color:red;'>Error!</h1><br>
-            <p>Given URL is invalid!</p>
+        <p style='font-size: 25px;'>Given URL is invalid!</p>
     </div>
     <br>
     <hr>
