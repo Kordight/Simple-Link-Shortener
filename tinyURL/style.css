@@ -1,28 +1,53 @@
+body {
+    font-family: 'Trebuchet MS', sans-serif;
+    margin: 0;
+    margin-top: auto 10px;
+}
+
 footer {
     text-align: center;
 }
 
 a {
     text-decoration: none;
-    color: lightslategrey;
+    color: rgb(62, 100, 144);
 }
 
-form {
-    text-align: left;
+.border-box {
+    /*text-align: left;*/
     padding: 2%;
-    border: 2px lightslategray solid;
+    border: 1px rgb(178, 201, 223) solid;
     border-radius: 15px;
-    max-width: 400px;
-    margin: 0 auto;
+    max-width: 65%;
+    margin: 10px auto;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
 label {
-    font-size: 25px;
+    font-size: 35px;
     font-weight: 600;
+    text-align: center;
+    display: block;
+    padding-bottom: 30px;
 }
 
 input {
     font-size: 20px;
-    border-radius: 5px;
+    border-radius: 3px;
     border: 1px solid rgb(161, 161, 161);
+    padding: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+}
+.links {
+    margin-bottom: 5px; 
+}
+input[type="submit"] {
+    background-color: rgb(87, 165, 255); /* Dodaj dowolny kolor tła */
+
 }
