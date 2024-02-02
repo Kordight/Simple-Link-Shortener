@@ -46,14 +46,16 @@
             header("Location: $longUrl");
             die();
         }
-        echo "This URL is invalid!";
         // Close the statement
         $stmt->close();
     }
 
     $conn->close();
-
     ?>
+        <div class="border-box">
+        <h1 style='text-align: center; font-size: 40px; color:red;'>Error!</h1><br>
+            <p>Given URL is invalid!</p>
+    </div>
     <br>
     <hr>
     <footer>
