@@ -25,7 +25,7 @@
     </div>
     <div class="border-box">
         <h2>What is this?</h2>
-        <p>This tool was created by <a href="https://github.com/seba0456">Sebastian Legieziśki</a>. It is my own approach to creating a URL shortener tool. You can find this tool in <a href="https://github.com/seba0456/Simple-Link-Shortener">this repository</a>. Feel free to use it. If you have any ideas or you've found a bug, please open a new issue on this project's repository.</p>
+        <p>This tool was created by <a href="https://github.com/seba0456">Sebastian Legieziński</a>. It is my own approach to creating a URL shortener tool. You can find this tool in <a href="https://github.com/seba0456/Simple-Link-Shortener">this repository</a>. Feel free to use it. If you have any ideas or you've found a bug, please open a new issue on this project's repository.</p>
         <p>Keep in mind that this tool may not be stable and could contain issues. For any inconvenience, I apologize!</p>
         <h2>How does it work?</h2>
         <p>This is a very simple tool. It simply stores your long link, generates a short link ID, and stores that data in a database.</p>
