@@ -15,7 +15,7 @@ a {
 
 .border-box {
     /*text-align: left;*/
-    padding: 2%;
+    padding: 3vh;
     border: 1px rgb(178, 201, 223) solid;
     border-radius: 15px;
     max-width: 70%;
@@ -44,10 +44,13 @@ input {
     display: flex;
     align-items: center;
 }
+
 .links {
-    margin-bottom: 5px; 
+    margin-bottom: 5px;
 }
+
 input[type="submit"] {
-    background-color: rgb(87, 165, 255); /* Dodaj dowolny kolor tła */
+    background-color: rgb(87, 165, 255);
+    /* Dodaj dowolny kolor tła */
 
 }

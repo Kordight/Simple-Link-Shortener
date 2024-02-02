@@ -39,4 +39,3 @@ function calcExpireDate($valID)
     $newDate = date("Y-m-d\TH:i:s", strtotime($currentDate . " + $numberOfDaysToAdd days"));
     return $newDate;
 }
-?>
