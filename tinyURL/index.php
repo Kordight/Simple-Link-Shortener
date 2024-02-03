@@ -35,11 +35,11 @@
         <h2>Future Plans for the Project</h2>
         <p>I intend to enhance this project by introducing new features. One upcoming addition will be a stats tab, allowing you to manage your links, view statistics, and remove your links as needed.</p>
         <p>If you appreciate my efforts and would like to support further development, please consider making a donation. Your support will enable me to broaden my skillset and improve the project.</p>
-        <form action="https://www.paypal.com/donate" method="post" target="_top">
-            <input type="hidden" name="hosted_button_id" value="S6PHEQ65FNBBQ" />
-            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-            <img alt="" border="0" src="https://www.paypal.com/en_PL/i/scr/pixel.gif" width="1" height="1" />
-        </form>
+        <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+        <script type='text/javascript'>
+            kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'O4O6U2OB7');
+            kofiwidget2.draw();
+        </script>
 
     </div>
     <hr>
