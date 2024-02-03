@@ -13,7 +13,7 @@
 </head>
 
 <body>
-
+<img src="images/app-icon.png" style="width:150px;height:150px;" alt="App logo" class="center">
     <div class="border-box">
         <form action="process.php" method="post">
             <label for="UserUrl">Paste your long URL:</label>
@@ -31,6 +31,16 @@
         <p>This is a very simple tool. It simply stores your long link, generates a short link ID, and stores that data in a database.</p>
         <h2>Is it free?</h2>
         <p>Yes, it is! I want to host my tools and other assets for free just to make knowledge available to everyone!</p>
+
+        <h2>Future Plans for the Project</h2>
+<p>I intend to enhance this project by introducing new features. One upcoming addition will be a stats tab, allowing you to manage your links, view statistics, and remove your links as needed.</p>
+<p>If you appreciate my efforts and would like to support further development, please consider making a donation. Your support will enable me to broaden my skillset and improve the project.</p>
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+<input type="hidden" name="hosted_button_id" value="S6PHEQ65FNBBQ" />
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+<img alt="" border="0" src="https://www.paypal.com/en_PL/i/scr/pixel.gif" width="1" height="1" />
+</form>
+
     </div>
     <hr>
     <footer>
