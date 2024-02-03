@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    <a href="index.php"><img src="images/app-icon.png" style="width:150px;height:150px;" alt="App logo" class="center"></a>
     <div class="border-box">
         <?php
         session_start(); // Start session

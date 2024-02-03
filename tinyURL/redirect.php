@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    <a href="index.php"><img src="images/app-icon.png" style="width:150px;height:150px;" alt="App logo" class="center"></a>
     <?php
     require "library.php";
     // Pobierz public ID z parametru zapytania
@@ -52,7 +53,7 @@
 
     $conn->close();
     ?>
-        <div class="border-box">
+    <div class="border-box">
         <h1 style='text-align: center; font-size: 40px; color:red;'>Error!</h1><br>
         <p style='font-size: 25px;'>Given URL is invalid!</p>
     </div>
