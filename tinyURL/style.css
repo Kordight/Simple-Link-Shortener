@@ -60,3 +60,6 @@ input[type="submit"] {
     margin-right: auto;
     width: 50%;
   }
+  a:hover{
+    text-decoration: underline;
+  }
