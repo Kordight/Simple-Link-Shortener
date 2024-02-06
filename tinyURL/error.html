@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Link Shortener - Error</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">
+</head>
+
+<body>
+    <a href="index.php"><img src="images/app-icon.png" style="width:150px;height:150px;" alt="App logo"
+            class="center"></a>
+
+    <div class="border-box">
+        <h1 style='text-align: center; font-size: 40px;'>An Error Encountered!</h1>
+        <p style='font-size: 25px;'>Your URL does not exist in our database. Please make sure to check your URL again...
+        </p>
+        <script src="logic.js"></script>
+        <script>redirectTo('index.php', 5);</script>
+        <div id="redirectMessage"></div>
+    </div>
+
+    <hr><br>
+    <footer>
+        <h3>Authors:</h3>
+        <div class="links">
+            <a href="https://github.com/seba0456">
+                <img src="images/github-mark.png" alt="Github profile" style="width:42px;height:42px;">
+                <br><b>seba0456</b>
+            </a>
+        </div>
+    </footer>
+</body>
+
+</html>

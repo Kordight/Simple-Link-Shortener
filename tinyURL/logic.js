@@ -27,3 +27,14 @@ function updateRangeValue() {
     }
     rangeValueSpan.innerHTML = rangeToStr;
 }
+function redirectTo(url, delaySeconds) {
+    var count = delaySeconds;
+    var countdown = setInterval(function () {
+        document.getElementById('redirectMessage').innerHTML = 'You will be redirected in <strong>' + count + '</strong> seconds.';
+        count--;
+        if (count === 0) {
+            clearInterval(countdown);
+            window.location.href = url;
+        }
+    }, 1000);
+}

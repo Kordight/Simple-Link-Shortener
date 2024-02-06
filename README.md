@@ -2,9 +2,22 @@
 
 This is my own approach to create link shortener website, it will be avaliable on my [website](https://sebaprojects.online/tinyURL).
 
+## Features
+
+* Random short URL generation
+* Uses SQL database
+* Uses Rewrite engine
+* Built for Apache server
+* Easy to set up
+
+### To do
+
+* Stats
+* Link removal on demand
+
 ## Setup
 
-Download and export this respository to your www root server directory. Then open `tinyURL/library.php` and then change `$configFilePath = 'yourPath';` to your path to `config.ini`.
+Download and import this repository. Then open `tinyURL/library.php` and change `$configFilePath = 'yourPath';` to your path to `config.ini`.
 
 `config.ini` example
 
@@ -24,6 +37,6 @@ Next you have to create new data base you can do that with that command:
 CREATE DATABASE url_library
 ```
 
-and then inport `url_library.sql`.
+and then import `url_library.sql`.
 
-You should be able to use website now under `http://yourdomain.com/tinyURL/`.
+You should be able to use the website now `http://yourdomain.com/tinyURL/`.

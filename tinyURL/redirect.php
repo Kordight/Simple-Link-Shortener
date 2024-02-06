@@ -37,25 +37,29 @@
         $result = $stmt->get_result();
 
         // Fetch the data
-        while ($row = $result->fetch_assoc()) {
-            // Access the 'longUrl' column from the result
-            $longUrl = $row['longUrl'];
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                // Access the 'longUrl' column from the result
+                $longUrl = $row['longUrl'];
 
-            // Do something with $longUrl
-            echo "Long URL: $longUrl";
+                // Do something with $longUrl
+                echo "Long URL: $longUrl";
 
-            header("Location: $longUrl");
-            die();
+                header("Location: $longUrl");
+                die();
+            }
+            // Close the statement
+            $stmt->close();
+        } else {
+            header("Location: error.html");
         }
-        // Close the statement
-        $stmt->close();
     }
 
     $conn->close();
     ?>
     <div class="border-box">
-        <h1 style='text-align: center; font-size: 40px; color:red;'>Error!</h1><br>
-        <p style='font-size: 25px;'>Given URL is invalid!</p>
+        <h1 style='text-align: center; font-size: 40px;'>Redirecting!</h1><br>
+        <p style='font-size: 25px;'>Redirecting...</p>
     </div>
     <br>
     <hr>
@@ -67,6 +71,7 @@
                 <br><b>seba0456</b>
             </a>
         </div>
+    </footer>
 </body>
 
 </html>
