@@ -23,3 +23,9 @@ RewriteRule ^tinyURL/library.php$ /tinyURL/error.html [L,R=301]
 
 # Redirect from index.php to index
 RewriteRule ^tinyURL/index.php$ /tinyURL/ [L,R=301]
+
+# Serve all text files as unicode
+AddDefaultCharset utf-8
+
+# Set encoding on individual file types
+AddCharset utf-8 .html .css .js .php
