@@ -25,7 +25,7 @@
     </div>
     <div class="border-box">
         <h2>What is this?</h2>
-        <p>This tool was created by <a href="https://github.com/seba0456">Sebastian Legieziński</a>. It is my own approach to creating a URL shortener tool. You can find this tool in <a href="https://github.com/seba0456/Simple-Link-Shortener">Simple Link Shortener repository</a>. Feel free to use it. If you have any ideas or you've found a bug, please open a new issue on this project's repository.</p>
+        <p>This tool was created by <a href="https://github.com/kordight">Sebastian Legieziński</a>. It is my own approach to creating a URL shortener tool. You can find this tool in <a href="https://github.com/Kordight/Simple-Link-Shortener">Simple Link Shortener repository</a>. Feel free to use it. If you have any ideas or you've found a bug, please open a new issue on this project's repository.</p>
         <p>Keep in mind that this tool may not be stable and could contain issues. For any inconvenience, I apologize!</p>
         <h2>How does it work?</h2>
         <p>Currently, this tool operates in a straightforward manner. Users submit lengthy URLs to the server, which then generates a unique random ID and returns it to the user. When the server receives the ID associated with a link from the user, it searches the database for the corresponding long URL and redirects the user to the target website.</p>
@@ -46,9 +46,9 @@
     <footer>
         <h3>Authors:</h3>
         <div class="links">
-            <a href="https://github.com/seba0456">
+            <a href="https://github.com/kordight">
                 <img src="images/github-mark.png" alt="Github profile" style="width:42px;height:42px;">
-                <br><strong>seba0456</strong>
+                <br><strong>Kordight</strong>
             </a>
         </div>
     </footer>

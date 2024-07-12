@@ -79,9 +79,9 @@
     <footer>
         <h3>Authors:</h3>
         <div class="links">
-            <a href="https://github.com/seba0456">
+            <a href="https://github.com/kordight">
                 <img src="images/github-mark.png" alt="Github profile" style="width:42px;height:42px;">
-                <br><b>seba0456</b>
+                <br><strong>Kordight</strong>
             </a>
         </div>
     </footer>
