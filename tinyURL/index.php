@@ -35,11 +35,6 @@
         <h2>Future Plans for the Project</h2>
         <p>I intend to enhance this project by introducing new features. One upcoming addition will be a stats tab, allowing you to manage your links, view statistics, and remove your links as needed.</p>
         <p>If you appreciate my efforts and would like to support further development, please consider making a donation. Your support will enable me to broaden my skillset and improve the project.</p>
-        <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
-        <script type='text/javascript'>
-            kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'O4O6U2OB7');
-            kofiwidget2.draw();
-        </script>
 
     </div>
     <hr>
